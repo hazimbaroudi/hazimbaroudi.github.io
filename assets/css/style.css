@@ -10,7 +10,7 @@ body {
   max-width: 780px;
   margin: 0 auto;
   padding: 3rem 1.5rem 6rem;
-  background-image: url('/background.jpg');
+  background-image: url('/fond.jpg');
   background-size: cover;       /* couvre tout l'écran */
   background-position: center;  /* centré */
   background-repeat: no-repeat;
