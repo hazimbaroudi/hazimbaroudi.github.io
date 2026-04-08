@@ -5,31 +5,40 @@ html { font-size: 16px; }
 body {
   font-family: 'Linux Libertine', 'Georgia', serif;
   color: #111;
-  background: #fff;
-  line-height: 1.7;
-  max-width: 780px;
   margin: 0 auto;
+  max-width: 780px;
   padding: 3rem 1.5rem 6rem;
+  line-height: 1.7;
+  
+  /* On prépare le body pour accueillir l'overlay */
+  position: relative;
+  background: #fff; /* Couleur de secours */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  
+  /* On place l'image ET l'overlay ici */
   background-image: url('../../fond.jpg');
-  background-size: cover;       /* couvre tout l'écran */
-  background-position: center;  /* centré */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  
+  /* L'opacité : 1.0 = image normale, 0.3 = très délavée */
+  opacity: 0.4; 
+  
+  z-index: -1; /* Indispensable pour passer derrière le texte */
 }
 
-/* Overlay semi-transparent pour lisibilité du texte */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.3); /* blanc transparent à 30% */
-    z-index: -1; /* derrière le texte */
-}
-
-/* Exemple pour du texte */
 p, h1, h2, h3 {
-    color: #000; /* texte noir pour bien se voir */
+  color: #000;
+  position: relative; /* Optionnel : assure que le texte reste bien au premier plan */
 }
 
 /* ── Nav ── */
